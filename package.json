@@ -8,5 +8,24 @@
   "main": "index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "dependencies": {
+    "aws-sdk": "^2.1693.0",
+    "body-parser": "^2.2.2",
+    "concurrently": "^10.0.3",
+    "cookie-session": "^2.1.1",
+    "express": "^5.2.1",
+    "migrate-mongoose": "^4.0.0",
+    "mongoose": "^9.7.0",
+    "nodemon": "^3.1.14",
+    "passport": "^0.7.0",
+    "passport-google-oauth20": "^2.0.0",
+    "path-parser": "^6.1.0",
+    "redis": "^6.0.0",
+    "uuid": "^14.0.0"
+  },
+  "devDependencies": {
+    "jest": "^30.4.2",
+    "puppeteer": "^25.1.0"
   }
 }
