@@ -1,0 +1,12 @@
+{
+  "name": "nodejsblogmanager",
+  "version": "1.0.0",
+  "description": "A blog management system built using Node JS (with a React client), as part of the coursework for [Stephen Grider's Advanced Node JS Udemy course](https://www.udemy.com/course/advanced-node-for-developers).",
+  "license": "ISC",
+  "author": "Josh Bryson",
+  "type": "commonjs",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  }
+}
