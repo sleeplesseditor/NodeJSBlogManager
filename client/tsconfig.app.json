@@ -17,9 +17,9 @@
     "paths": {
         "@api/*": ["./src/api/*"],
         "@components/*": ["./src/components/*"],
+        "@modules/*": ["./src/modules/*"],
         "@styles/*": ["./src/styles/*"]
     },
-
     /* Linting */
     "noUnusedLocals": true,
     "noUnusedParameters": true,
