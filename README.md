@@ -19,3 +19,4 @@ This project is an exercise in working with legacy content and updating it to co
 ## Changes from Original Project
 - Revised frontend app to use Vite and TypeScript
 - Implemented Redux Toolkit and TanStack Query and Router in frontend
+- Revised Passport strategy to use 0Auth
