@@ -4,5 +4,12 @@ import type { RootState } from "@modules/redux/store";
 export const authSlice = createSlice({
     name: 'auth',
     initialState: {},
-    reducers: {},
+    reducers: {
+        fetchUser: (state, action) => {
+            return action.payload;
+        }
+    },
 });
+
+export const { fetchUser } = authSlice.actions;
+export default authSlice.reducer;

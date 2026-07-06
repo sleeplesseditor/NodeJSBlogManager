@@ -5,5 +5,12 @@ export const Route = createFileRoute('/')({
 })
 
 function RouteComponent() {
-  return <div>Hello "/"!</div>
+    return (
+        <div style={{ textAlign: 'center' }}>
+            <h1>
+                Blogster!
+            </h1>
+            Write private blogs
+        </div>
+    );
 }
