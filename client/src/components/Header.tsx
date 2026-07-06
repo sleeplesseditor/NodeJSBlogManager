@@ -9,12 +9,12 @@ const Header = () => {
     
     const authState = useSelector((state: any) => state.auth);
 
-    // React.useEffect(() => {
-    //     queryClient.prefetchQuery({
-    //         queryKey: ['blogUser', null],
-    //         queryFn: () => getBlogUser()
-    //     })
-    // }, []);
+    React.useEffect(() => {
+        queryClient.prefetchQuery({
+            queryKey: ['blogUser', 'user'],
+            queryFn: () => getBlogUser()
+        })
+    }, []);
 
     const renderContent = () => {
         switch (authState) {
