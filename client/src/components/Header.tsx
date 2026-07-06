@@ -17,13 +17,13 @@ const Header = () => {
     }, []);
 
     const renderContent = () => {
-        switch (authState) {
+        switch (authState.authenticated) {
             case null:
                 return;
             case false:
                 return (
                     <li>
-                        <a href={'/auth/google'}>Login With Google</a>
+                        <a href={'/auth/google'}>Login With 0Auth</a>
                     </li>
                 );
             default:
@@ -31,7 +31,7 @@ const Header = () => {
                     <React.Fragment>
                         <li key="3" style={{ margin: '0 10px' }}>
                             <Link to="/blogs">My Blogs</Link>
-                        </li>,
+                        </li>
                         <li key="2">
                             <a href={'/auth/logout'}>Log out</a>
                         </li>

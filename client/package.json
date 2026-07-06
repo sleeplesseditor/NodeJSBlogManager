@@ -9,14 +9,6 @@
     "lint": "eslint .",
     "preview": "vite preview"
   },
-  "proxy": {
-    "/auth/*": {
-      "target": "http://localhost:4000"
-    },
-    "/api/*": {
-      "target": "http://localhost:4000"
-    }
-  },
   "dependencies": {
     "@reduxjs/toolkit": "^2.12.0",
     "@tanstack/react-query": "^5.101.0",

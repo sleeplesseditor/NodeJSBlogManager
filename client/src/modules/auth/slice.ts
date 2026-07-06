@@ -3,7 +3,9 @@ import type { RootState } from "@modules/redux/store";
 
 export const authSlice = createSlice({
     name: 'auth',
-    initialState: {},
+    initialState: {
+        authenticated: false
+    },
     reducers: {
         fetchUser: (state, action) => {
             return action.payload;

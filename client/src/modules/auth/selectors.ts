@@ -14,6 +14,5 @@ import type { RootState } from "../redux/store";
 
 export const getBlogUser = async () => {
     const res = await fetch('/api/current_user');
-    console.log('getBlogUser res:', res.json());
     return res.json();
 }
