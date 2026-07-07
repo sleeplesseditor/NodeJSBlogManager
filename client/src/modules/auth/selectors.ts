@@ -1,18 +1,16 @@
-import { createSelector } from "@reduxjs/toolkit";
-import type { RootState } from "../redux/store";
+import { createAsyncThunk } from "@reduxjs/toolkit";
 
+export const getBlogUser = createAsyncThunk(
+    'auth/getBlogUser',
+    async () => {
+        const res = await fetch('/api/current_user', {
+            credentials: 'include',
+        });
 
-// export const getBlogUser = () => createSelector({
+        if (!res.ok) {
+            return null;
+        }
 
-// });
-
-// export const fetchUser = () => async dispatch => {
-//   const res = await axios.get('/api/current_user');
-
-//   dispatch({ type: FETCH_USER, payload: res.data });
-// };
-
-export const getBlogUser = async () => {
-    const res = await fetch('/api/current_user');
-    return res.json();
-}
+        return res.json();
+    }
+);

@@ -1,17 +1,19 @@
-import { createSelector, createSlice } from "@reduxjs/toolkit";
-import type { RootState } from "@modules/redux/store";
+import { createSlice } from "@reduxjs/toolkit";
+import { getBlogUser } from '@modules/auth/selectors';
 
 export const authSlice = createSlice({
     name: 'auth',
     initialState: {
-        authenticated: false
+        user: undefined
     },
-    reducers: {
-        fetchUser: (state, action) => {
-            return action.payload;
-        }
-    },
+    reducers: {},
+    extraReducers: (builder) => {
+        builder
+            .addCase(getBlogUser.fulfilled, (state, action) => {
+                state.user = action.payload ?? null;
+            });
+    }
 });
 
-export const { fetchUser } = authSlice.actions;
+// export const { fetchUser } = authSlice.actions;
 export default authSlice.reducer;

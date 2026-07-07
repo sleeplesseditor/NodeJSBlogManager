@@ -1,26 +1,21 @@
 import * as React from 'react';
 import { Link } from "@tanstack/react-router";
-import { useQueryClient } from '@tanstack/react-query';
-import { useSelector } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
 import { getBlogUser } from '@modules/auth/selectors';
 
 const Header = () => {
-    const queryClient = useQueryClient(); 
-    
+    const dispatch = useDispatch();
     const authState = useSelector((state: any) => state.auth);
 
     React.useEffect(() => {
-        queryClient.prefetchQuery({
-            queryKey: ['blogUser', 'user'],
-            queryFn: () => getBlogUser()
-        })
-    }, []);
+        dispatch(getBlogUser() as never);
+    }, [dispatch]);
 
     const renderContent = () => {
-        switch (authState.authenticated) {
+        switch (authState.user) {
             case null:
                 return;
-            case false:
+            case undefined:
                 return (
                     <li>
                         <a href={'/auth/google'}>Login With 0Auth</a>
@@ -57,9 +52,3 @@ const Header = () => {
 }
 
 export default Header;
-
-// function mapStateToProps({ auth }) {
-//   return { auth };
-// }
-
-// export default connect(mapStateToProps)(Header);
