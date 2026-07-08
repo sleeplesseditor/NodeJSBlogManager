@@ -24,7 +24,7 @@ function RouteComponent() {
    }, [dispatch, blogId]);
 
    return (
-       <div>
+       <div className="container">
            <h3>{blog?.title}</h3>
            <p>{blog?.content}</p>
        </div>

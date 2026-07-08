@@ -8,7 +8,7 @@ export const Route = createFileRoute('/blogs/')({
 
 function RouteComponent() {
   return (
-    <div>
+    <div className="container">
         <BlogList />
         <div className="fixed-action-btn">
         <Link to="/blogs/new" className="btn-floating btn-large red">

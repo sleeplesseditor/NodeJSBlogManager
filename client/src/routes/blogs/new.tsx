@@ -19,6 +19,6 @@ function RouteComponent() {
   }
 
   return (
-    <div>{renderBlogContent()}</div>
+    <div className="container">{renderBlogContent()}</div>
   )
 }
