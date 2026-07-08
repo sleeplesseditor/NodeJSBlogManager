@@ -1,28 +1,44 @@
 import * as React from 'react';
 import { useForm } from 'react-hook-form';
+import { yupResolver } from "@hookform/resolvers/yup";
 import formFields from '@components/blogs/formFields';
+import formSchema from '@components/blogs/formSchema';
 
 interface IProps {
     onBlogSubmit: () => void;
 }
 
-const BlogForm = (props: IProps) => {
-      const { register, handleSubmit, formState: { errors } } = useForm();
+interface FormValues {
+    title: string;
+    content: string;
+}
 
-    const formDisplay = () => formFields.map((field) => {
+const BlogForm = (props: IProps) => {
+    const { register, handleSubmit, formState: { errors } } = useForm<FormValues>(
+        { resolver: yupResolver(formSchema) }
+    );
+
+    const formFieldsDisplay = () => formFields.map((field) => {
+        const fieldError = errors[field.name];
+
         return (
-            <input
-                key={field.name}
-                {...register(field.name, { required: true })}
-                placeholder={field.label}
-                type="text"
-            />
+            <React.Fragment key={field.name}>
+                <label>{field.label}</label>
+                <input
+                    {...register(field.name, { required: true })}
+                    placeholder={field.label}
+                    type="text"
+                />
+                {fieldError && <span className="error-text">{field.label} is required</span>}
+            </React.Fragment>
         )
     });
 
     return (
         <div>
-            {formDisplay()}
+            <form onSubmit={handleSubmit(props.onBlogSubmit)}>
+                {formFieldsDisplay()}
+            </form>
         </div>
     )
 }
