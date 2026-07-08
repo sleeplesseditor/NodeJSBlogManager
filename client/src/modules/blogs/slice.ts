@@ -1,15 +1,21 @@
 import { createSlice } from "@reduxjs/toolkit";
 import mapKeys from 'lodash/mapKeys';
-import { fetchBlogList } from '@modules/blogs/selectors';
+import { fetchBlogList, fetchBlogById } from '@modules/blogs/selectors';
 
 export const blogsSlice = createSlice({
     name: 'blogs',
-    initialState: {},
+    initialState: {
+        blogList: [] as Record<string, any>,
+        selectedBlog: null
+    },
     reducers: {},
     extraReducers: (builder) => {
         builder
             .addCase(fetchBlogList.fulfilled, (state, action) => {
-                return { ...state, ...mapKeys(action.payload, '_id') };
+                return { ...state, blogList: mapKeys(action.payload, 'id')  };
+            })
+            .addCase(fetchBlogById.fulfilled, (state, action) => {
+                return { ...state, selectedBlog: action.payload  };
             })
     }
 });

@@ -14,3 +14,18 @@ export const fetchBlogList = createAsyncThunk(
         return res.json();
     }
 );
+
+export const fetchBlogById = createAsyncThunk(
+    'blogs/fetchBlogById',
+    async (blogId: string) => {
+        const res = await fetch(`/api/blogs/${blogId}`, {
+            credentials: 'include',
+        });
+
+        if (!res.ok) {
+            throw new Error('Failed to fetch blog');
+        }
+
+        return res.json();
+    }
+);
