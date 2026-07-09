@@ -1,3 +1,4 @@
+import { clearFormValues } from "@modules/form/selectors";
 import { createAsyncThunk } from "@reduxjs/toolkit";
 
 export const fetchBlogList = createAsyncThunk(
@@ -29,3 +30,14 @@ export const fetchBlogById = createAsyncThunk(
         return res.json();
     }
 );
+
+export const submitBlog = (formValues: any) => async (dispatch: any) => {
+    await fetch('/api/blogs', {
+        method: 'POST',
+        headers: {
+            'Content-Type': 'application/json',
+        },
+        body: JSON.stringify(formValues),
+    });
+    dispatch(clearFormValues());
+}

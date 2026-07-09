@@ -12,7 +12,7 @@ export const blogsSlice = createSlice({
     extraReducers: (builder) => {
         builder
             .addCase(fetchBlogList.fulfilled, (state, action) => {
-                return { ...state, blogList: mapKeys(action.payload, 'id')  };
+                return { ...state, blogList: action.payload  };
             })
             .addCase(fetchBlogById.fulfilled, (state, action) => {
                 return { ...state, selectedBlog: action.payload  };

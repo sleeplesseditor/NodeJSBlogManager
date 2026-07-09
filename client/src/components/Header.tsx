@@ -38,14 +38,14 @@ const Header = () => {
     return (
         <nav className="indigo">
             <div className="nav-wrapper">
-            <Link
-                to={authState ? '/blogs' : '/'}
-                className="left brand-logo"
-                style={{ marginLeft: '10px' }}
-            >
-                Blogster
-            </Link>
-            <ul className="right">{renderContent()}</ul>
+                <Link
+                    to={authState ? '/blogs' : '/'}
+                    className="left brand-logo"
+                    style={{ marginLeft: '10px' }}
+                >
+                    Blogster
+                </Link>
+                <ul className="right">{renderContent()}</ul>
             </div>
         </nav> 
     )

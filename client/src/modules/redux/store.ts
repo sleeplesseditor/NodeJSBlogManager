@@ -2,12 +2,14 @@ import { configureStore } from "@reduxjs/toolkit";
 import { useDispatch, useSelector, type TypedUseSelectorHook } from "react-redux";
 import { authSlice } from "@modules/auth/slice";
 import { blogsSlice } from "@modules/blogs/slice";
+import { formSlice } from "@modules/form/slice";
 
 function createStore() {
     const store = configureStore({
         reducer: {
             auth: authSlice.reducer,
             blogs: blogsSlice.reducer,
+            forms: formSlice.reducer
         },
     });
 

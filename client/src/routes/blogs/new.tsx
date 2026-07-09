@@ -12,7 +12,7 @@ function RouteComponent() {
 
   const renderBlogContent = () => {
     if(isFormReviewVisible) {
-      return <BlogFormReview onEdit={() => setIsFormReviewVisible(false)} />
+      return <BlogFormReview onCancel={() => setIsFormReviewVisible(false)} />
     } else {
       return <BlogForm onBlogSubmit={() => setIsFormReviewVisible(true)} />
     }

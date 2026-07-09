@@ -5,14 +5,14 @@ import { Link } from "@tanstack/react-router";
 
 const BlogList = () => {
     const dispatch = useDispatch();
-    const blogsState = useSelector((state: any) => state.blogs);
+    const blogsListState = useSelector((state: any) => state.blogs.blogList);
 
     React.useEffect(() => {
         dispatch(fetchBlogList() as never);
     }, [dispatch]);
 
     const renderBlogList = () => {
-        return blogsState.length > 0 ? blogsState.map((blog: any) => {
+        return blogsListState.length > 0 ? blogsListState.map((blog: any) => {
             return (
                 <div className="card darken-1 horizontal" key={blog._id}>
                     <div className="card-stacked">
