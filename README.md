@@ -19,4 +19,9 @@ This project is an exercise in working with legacy content and updating it to co
 ## Changes from Original Project
 - Revised frontend app to use Vite and TypeScript
 - Implemented Redux Toolkit and TanStack Query and Router in frontend
-- Revised Passport strategy to use 0Auth
+    - Applied use of file-based routing to cut down on unnecessary component separation
+    - Route guards added to prevent unauthorized access
+- Revised Passport strategy to use 0Auth for better testing
+- Removed outdated or unnecessary dependency uses
+    - Lodash, Redux Form
+- Revised form setup to use React Hook Form and Yup form validation
