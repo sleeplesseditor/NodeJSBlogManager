@@ -1,7 +1,8 @@
 import * as React from 'react';
 import { fetchBlogById } from '@modules/blogs/selectors';
 import { useAppDispatch, useAppSelector } from '@modules/redux/store';
-import { createFileRoute, useParams } from '@tanstack/react-router';
+import { createFileRoute, redirect, useParams } from '@tanstack/react-router';
+import { store } from '@modules/redux/store';
 
 interface Blog {
   title: string;
@@ -9,6 +10,14 @@ interface Blog {
 }
 
 export const Route = createFileRoute('/blogs/$id')({
+  beforeLoad: ({ location }) => {
+    const state = store.getState();
+    const isAuthenticated = Boolean(state.auth.user);
+
+    if (!isAuthenticated) {
+      throw redirect({ to: '/', search: { redirect: location.href } });
+    }
+  },
   component: RouteComponent,
 });
 

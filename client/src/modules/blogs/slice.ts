@@ -1,5 +1,4 @@
 import { createSlice } from "@reduxjs/toolkit";
-import mapKeys from 'lodash/mapKeys';
 import { fetchBlogList, fetchBlogById } from '@modules/blogs/selectors';
 
 export const blogsSlice = createSlice({

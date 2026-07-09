@@ -1,9 +1,18 @@
 import * as React from 'react';
-import { createFileRoute } from '@tanstack/react-router';
+import { createFileRoute, redirect } from '@tanstack/react-router';
 import BlogForm from '@components/blogs/BlogForm';
 import BlogFormReview from '@components/blogs/BlogFormReview';
+import { store } from '@modules/redux/store';
 
 export const Route = createFileRoute('/blogs/new')({
+  beforeLoad: ({ location }) => {
+    const state = store.getState();
+    const isAuthenticated = Boolean(state.auth.user);
+
+    if (!isAuthenticated) {
+      throw redirect({ to: '/', search: { redirect: location.href } });
+    }
+  },
   component: RouteComponent,
 })
 

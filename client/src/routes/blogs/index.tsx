@@ -1,8 +1,17 @@
-import { createFileRoute } from '@tanstack/react-router';
+import { createFileRoute, redirect } from '@tanstack/react-router';
 import { Link } from "@tanstack/react-router";
 import BlogList from '@components/blogs/BlogList';
+import { store } from '@modules/redux/store';
 
 export const Route = createFileRoute('/blogs/')({
+  beforeLoad: ({ location }) => {
+    const state = store.getState();
+    const isAuthenticated = Boolean(state.auth.user);
+
+    if (!isAuthenticated) {
+      throw redirect({ to: '/', search: { redirect: location.href } });
+    }
+  },
   component: RouteComponent,
 })
 

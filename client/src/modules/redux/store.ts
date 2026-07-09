@@ -25,6 +25,8 @@ export const getStore = () => {
     return storeInstance
 };
 
+export const store = getStore();
+
 export default getStore;
 
 export type RootState = ReturnType<ReturnType<typeof createStore>["getState"]>;
