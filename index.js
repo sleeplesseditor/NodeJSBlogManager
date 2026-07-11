@@ -8,11 +8,13 @@ const keys = require('./config/keys');
 require('./models/User');
 require('./models/Blog');
 require('./services/passport');
+const redisClient = require('./services/cache');
 
 mongoose.Promise = global.Promise;
 mongoose.connect(keys.mongoURI);
 
 const app = express();
+app.locals.redisClient = redisClient;
 
 app.set('trust proxy', 1);
 app.use(bodyParser.json());
@@ -46,13 +48,3 @@ const PORT = process.env.PORT || 4000;
 app.listen(PORT, () => {
     console.log(`Listening on port`, PORT);
 });
-
-const redis = require('redis');
-
-const redisClient = redis.createClient({
-    url: 'redis://127.0.0.1:6379'
-});
-
-redisClient.connect().catch(console.error);
-
-app.locals.redisClient = redisClient;
