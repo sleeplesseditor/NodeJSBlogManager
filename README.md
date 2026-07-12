@@ -24,6 +24,6 @@ This project is an exercise in working with legacy content and updating it to co
     - Route guards added to prevent unauthorized access
 - Revised Passport strategy to use 0Auth for better testing
 - Removed outdated or unnecessary dependency uses
-    - Lodash, Redux Form
+    - Lodash, Redux Form, Passport-Google-OAuth
 - Revised form setup to use React Hook Form and Yup form validation
 - Moved integration testing from Puppeteer to Playwright
