@@ -1,3 +1,4 @@
+import * as React from 'react';
 import formFields from '@components/blogs/formFields';
 import { useDispatch, useSelector } from 'react-redux';
 import { submitBlog } from '@modules/blogs/selectors';
@@ -10,6 +11,8 @@ interface IProps {
 }
 
 const BlogFormReview = (props: IProps) => {
+    const [selectedImage, setSelectedImage] = React.useState();
+
     const dispatch = useDispatch();
     const navigateTo = useNavigate();
     const formValues = useSelector((state: any) => state.forms.formValues);
@@ -41,7 +44,7 @@ const BlogFormReview = (props: IProps) => {
     }
 
     const submitBlogValueFn = async () => {
-        await dispatch(submitBlog(formValues.values) as never);
+        await dispatch(submitBlog(formValues.values, selectedImage) as never);
     }
 
     const submitBlogValues = useMutation({
@@ -56,6 +59,10 @@ const BlogFormReview = (props: IProps) => {
         }
     });
 
+    const onFileChange = (event: any) => {
+        setSelectedImage(event.target.files[0])
+    };
+
     const onSubmit = () => {
         submitBlogValues.mutate();
     };
@@ -64,6 +71,13 @@ const BlogFormReview = (props: IProps) => {
         <form onSubmit={onSubmit}>
             <h5>Please confirm your entries</h5>
             {displayFormFields()}
+            <div className="image-select-container">
+                <input
+                    onChange={onFileChange}
+                    type="file"
+                    accept="image/*"
+                />
+            </div>
             {renderButtons()}
         </form>
     )

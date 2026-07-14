@@ -43,8 +43,6 @@ const BlogForm = (props: IProps) => {
         props.onBlogSubmit();
     }
 
-    console.log('ERR', errors)
-
     return (
         <div>
             <form className="blog-creation-form" onSubmit={handleSubmit(submitBlogValues)}>

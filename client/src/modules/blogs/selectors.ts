@@ -31,7 +31,7 @@ export const fetchBlogById = createAsyncThunk(
     }
 );
 
-export const submitBlog = (formValues: any) => async (dispatch: any) => {
+export const submitBlog = (formValues: any, selectedImage: any) => async (dispatch: any) => {
     await fetch('/api/blogs', {
         method: 'POST',
         headers: {
