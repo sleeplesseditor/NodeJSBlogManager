@@ -2,9 +2,11 @@ import * as React from 'react';
 import { fetchBlogById } from '@modules/blogs/selectors';
 import { useAppDispatch, useAppSelector } from '@modules/redux/store';
 import { createFileRoute, redirect, useParams } from '@tanstack/react-router';
+import keys from '@config/keys';
 import { store } from '@modules/redux/store';
 
 interface Blog {
+  imageUrl?: string;
   title: string;
   content: string;
 }
@@ -32,10 +34,19 @@ function RouteComponent() {
        }
    }, [dispatch, blogId]);
 
+   const renderImage = () => {
+    if(blog && blog?.imageUrl) {
+      return (
+        <img alt="" src={`https:${keys.s3BucketUrl}/${blog?.imageUrl}`} />
+      )
+    }
+   }
+
    return (
        <div className="container">
            <h3>{blog?.title}</h3>
            <p>{blog?.content}</p>
+           {renderImage()}
        </div>
    )
 }

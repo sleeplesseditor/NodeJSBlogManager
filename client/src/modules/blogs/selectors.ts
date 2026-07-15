@@ -32,12 +32,25 @@ export const fetchBlogById = createAsyncThunk(
 );
 
 export const submitBlog = (formValues: any, selectedImage: any) => async (dispatch: any) => {
+    const uploadConfig = await fetch('/api/upload') as any;
+
+    await fetch(uploadConfig?.data.url, {
+        method: 'PUT',
+        headers: {
+            'Content-Type': 'image/jpeg'
+        },
+        body: selectedImage
+    })
+
     await fetch('/api/blogs', {
         method: 'POST',
         headers: {
             'Content-Type': 'application/json',
         },
-        body: JSON.stringify(formValues),
+        body: {
+            ...formValues,
+            imageUrl: uploadConfig.data.key
+        },
     });
     dispatch(clearFormValues());
 }
