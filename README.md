@@ -16,7 +16,6 @@ This project is an exercise in working with legacy content and updating it to co
 - Additionally, for image upload functionality, an AWS S3 bucket is required. The config information should be added to the relevant dev.js file in the config folders for both client and server
 
 ## Running the App Locally
-- To run the full stack
 - CD into project folder and run `npm install`
 - CD into client folder and run `npm install`
 - Ensure Redis Server is running in a terminal (run using the command `redis-server`)
