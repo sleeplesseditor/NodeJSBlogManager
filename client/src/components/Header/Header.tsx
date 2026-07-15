@@ -11,6 +11,8 @@ const Header = () => {
         dispatch(getBlogUser() as never);
     }, [dispatch]);
 
+    console.log('AUTH', authState)
+
     const renderContent = () => {
         switch (authState.user) {
             case null:
@@ -36,7 +38,7 @@ const Header = () => {
     }
     
     return (
-        <nav className="indigo">
+        <nav className="indigo" data-testid="header-wrapper">
             <div className="nav-wrapper">
                 <Link
                     to={authState ? '/blogs' : '/'}
