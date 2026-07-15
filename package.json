@@ -16,6 +16,7 @@
     "test": "jest"
   },
   "dependencies": {
+    "@aws-sdk/core": "^3.975.2",
     "aws-sdk": "^2.1693.0",
     "body-parser": "^2.2.2",
     "concurrently": "^10.0.3",
@@ -29,7 +30,7 @@
     "passport-auth0": "^1.4.5",
     "path-parser": "^6.1.0",
     "redis": "^6.0.0",
-    "uuid": "^14.0.0"
+    "uuid": "^14.0.1"
   },
   "devDependencies": {
     "jest": "^30.4.2",
