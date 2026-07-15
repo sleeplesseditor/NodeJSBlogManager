@@ -5,6 +5,7 @@
 - [Additional Requirements](#additional-requirements)
 - [Running the App Locally](#running-the-app-locally)
 - [Changes from Original Project](#changes-from-original-project)
+- [Further Potential Improvements](#further-potential-improvements)
 
 ## Description
 A blog management system built using Node JS (with a React client), as part of the coursework for [Stephen Grider's Advanced Node JS Udemy course](https://www.udemy.com/course/advanced-node-for-developers).
@@ -14,6 +15,7 @@ This project is an exercise in working with legacy content and updating it to co
 ## Additional Requirements
 - You will need to have Redis-Server available, as this is used for caching in the app
 - Additionally, for image upload functionality, an AWS S3 bucket is required. The config information should be added to the relevant dev.js file in the config folders for both client and server
+- To run Playwright tests, you will need to also run `npx install playwright` to ensure availability of browsers for use in testing
 
 ## Running the App Locally
 - CD into project folder and run `npm install`
@@ -33,3 +35,7 @@ This project is an exercise in working with legacy content and updating it to co
 - Revised form setup to use React Hook Form and Yup form validation
 - Moved integration testing from Puppeteer to Playwright
 - Switched CI setup from Travis to GitHub Actions workflow
+
+## Further Potential Improvements
+- Expand unit and integration testing coverage
+- Consider alternatives to S3 Bucket storage for image upload

@@ -4,7 +4,7 @@
   "description": "A blog management system built using Node JS (with a React client), as part of the coursework for [Stephen Grider's Advanced Node JS Udemy course](https://www.udemy.com/course/advanced-node-for-developers).",
   "license": "ISC",
   "author": "Josh Bryson",
-  "type": "commonjs",
+  "type": "module",
   "main": "index.js",
   "scripts": {
     "start": "node index.js",
@@ -13,7 +13,7 @@
     "dev": "concurrently \"npm run server\" \"npm run client\"",
     "build": "NPM_CONFIG_PRODUCTION=false npm install --legacy-peer-deps --prefix client && npm run build --prefix client",
     "heroku-postbuild": "npm run build",
-    "test": "jest"
+    "test:e2e": "playwright test tests/e2e"
   },
   "dependencies": {
     "@aws-sdk/core": "^3.975.2",
@@ -33,8 +33,8 @@
     "uuid": "^14.0.1"
   },
   "devDependencies": {
+    "@playwright/test": "^1.61.1",
     "jest": "^30.4.2",
-    "playwright": "^1.61.1",
-    "puppeteer": "^25.1.0"
+    "playwright": "^1.61.1"
   }
 }
